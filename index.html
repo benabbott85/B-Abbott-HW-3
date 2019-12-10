@@ -33,27 +33,35 @@
 
                     var numLower = confirm("Do you want to include lower case letters?")
                     var numUpper = confirm("Do you want to include upper case letters?")
-                    var numNum = confirm("Do you want to include numbers?")
+                    var numChar = confirm("Do you want to include numbers?")
                     var numSpc = confirm("Do you want to include special characters?")
 
 
 
                     var passwordChar = [];
 
+                    var password = ""
+
                     function pullCharArr (num,arr) {
-                        for (var i= o; i < num; i++) {
+                        for (var i = 0; i < num; i++) {
                             passwordChar.push(arr[Math.floor(Math.random() * (arr.length))])
                         }
                     }
 
                     pullCharArr(numLower,lowerChar)
                     pullCharArr(numUpper, upperChar)
-                    pullCharArr(numNum, numChar)
+                    pullCharArr(numChar, numChar)
                     pullCharArr(numSpc, spcChar)
 
                     for (var i =0; i < passwordChar.length; i++) {
                         password = password + passwordChar[i]
                     }
+
+                    alert = ("Your password is " + password)
+
+                    
+
+                 
     </script>
 
 </body>
