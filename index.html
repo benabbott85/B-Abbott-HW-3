@@ -16,34 +16,46 @@
         var lowerChar = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
         var upperChar = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
         var num = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
-        var spcChar = [' ', '!', '"', '#', '$', '%', '&', '', '+', ',', '-', '.', '/', ':', ';', '<', '=', '>', '?', '@', '[', '\', '] ^ ', '`', '{', '|', '}', '~']
+        var spcChar = [' ', '!', '"', '#', '$', '%', '&', '(', ')', '*', '+', ',', '-', '.', '/', ':', ';', '<', '=', '>', '?', '@', '[', ']', '^', '_', '`', '{', '|', '}', '~']
         
-         var numLower = parseInt(prompt("Enter a number of lower case letters you want"))
-         var numUpper = parseInt(prompt("Enter a number of upper case letters you want"))
-         var numNum = parseInt(prompt("Enter a number of numbers you want"))
-         var numSpc = parseInt(prompt("Enter a number of special characters you want"))
-        
-         var passwordChar =[]
-         
-         for (var i=0; i < numLower; i++) {
-             passwordChar.push(lowerChar[Math.floor(Math.Random()*(lowerChar.length))])
-         }
-        
-        for (var i=0; i < numUpper; i++) {
-             passwordChar.push(upperChar[Math.floor(Math.Random()*(upperChar.length))])
-         }
-        
-        for (var i=0; i < numNum; i++) {
-             passwordChar.push(numChar[Math.floor(Math.Random()*(numChar.length))])
-         }
-         for (var i=0; i < numSpc; i++) {
-             passwordChar.push(spcChar[Math.floor(Math.Random()*(spcChar.length))])
-         }
-        
-         for (var i=0; i <passwordChar.length;)
-            password = password + passwordChar[i]
-        
+        var x = 0
+        varnumSelct = 0
+
+        while (x < 1) {
+            var totalChar = parseInt(prompt("How many characters do you want your password to be? Choose a number between 8 and 128"))
+                if ((totalChar >= 8) && (totalChar <= 128)) {
+                    x = 1
+                } else {
+                    alert("Number is out of range, hit ok and try again!")
+                }
+        } 
+
+
+                    var numLower = confirm("Do you want to include lower case letters?")
+                    var numUpper = confirm("Do you want to include upper case letters?")
+                    var numNum = confirm("Do you want to include numbers?")
+                    var numSpc = confirm("Do you want to include special characters?")
+
+
+
+                    var passwordChar = [];
+
+                    function pullCharArr (num,arr) {
+                        for (var i= o; i < num; i++) {
+                            passwordChar.push(arr[Math.floor(Math.random() * (arr.length))])
+                        }
+                    }
+
+                    pullCharArr(numLower,lowerChar)
+                    pullCharArr(numUpper, upperChar)
+                    pullCharArr(numNum, numChar)
+                    pullCharArr(numSpc, spcChar)
+
+                    for (var i =0; i < passwordChar.length; i++) {
+                        password = password + passwordChar[i]
+                    }
     </script>
+
 </body>
 
 </html>
