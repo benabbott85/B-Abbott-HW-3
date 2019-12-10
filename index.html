@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+
+
+        var lowerChar = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
+        var upperChar = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
+        var num = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
+        var spcChar = [' ', '!', '"', '#', '$', '%', '&', '', '+', ',', '-', '.', '/', ':', ';', '<', '=', '>', '?', '@', '[', '\', '] ^ ', '`', '{', '|', '}', '~']
+        
+         var numLower = parseInt(prompt("Enter a number of lower case letters you want"))
+         var numUpper = parseInt(prompt("Enter a number of upper case letters you want"))
+         var numNum = parseInt(prompt("Enter a number of numbers you want"))
+         var numSpc = parseInt(prompt("Enter a number of special characters you want"))
+        
+         var passwordChar =[]
+         
+         for (var i=0; i < numLower; i++) {
+             passwordChar.push(lowerChar[Math.floor(Math.Random()*(lowerChar.length))])
+         }
+        
+        for (var i=0; i < numUpper; i++) {
+             passwordChar.push(upperChar[Math.floor(Math.Random()*(upperChar.length))])
+         }
+        
+        for (var i=0; i < numNum; i++) {
+             passwordChar.push(numChar[Math.floor(Math.Random()*(numChar.length))])
+         }
+         for (var i=0; i < numSpc; i++) {
+             passwordChar.push(spcChar[Math.floor(Math.Random()*(spcChar.length))])
+         }
+        
+         for (var i=0; i <passwordChar.length;)
+            password = password + passwordChar[i]
+        
+    </script>
+</body>
+
+</html>
