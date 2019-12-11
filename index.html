@@ -17,51 +17,99 @@
         var upperChar = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
         var num = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
         var spcChar = [' ', '!', '"', '#', '$', '%', '&', '(', ')', '*', '+', ',', '-', '.', '/', ':', ';', '<', '=', '>', '?', '@', '[', ']', '^', '_', '`', '{', '|', '}', '~']
-        
+
         var x = 0
-        varnumSelct = 0
+        varnumSelect = 0
+
+
+        function password() {
+            var totalChar = parseInt(prompt("How many characters do you want your password to be? Choose a number between 8 and 128"))
+            if (isNaN(totalChar) === true) {
+                alert("Password length must be provided as a number")
+                return;
+            }
+            if (totalChar < 8) {
+                alert("Password must be at least 8 characters long")
+                return;
+            }
+            if (totalChar > 128) {
+                alert("Password must be between 8 and 128 characters long")
+                return;
+            }
+            var numLower = confirm("Do you want to include lower case letters?")
+            var numUpper = confirm("Do you want to include upper case letters?")
+            var numChar = confirm("Do you want to include numbers?")
+            var numSpc = confirm("Do you want to include special characters?")
+            if (numLower===false && numUpper===false && numChar===false && numSpc===false) {
+                alert ("Must select at least one character to generate password")
+                return;
+            }
+            var passwordOptions = {
+                totalChar: totalChar, 
+                numLower: numLower,
+                numUpper: numUpper,
+                numChar: numChar,
+                numSpc: numSpc
+            }
+            return passwordOptions;
+        }
+
+        function getRandom (arr) {
+            var ranIndex = Math.floor(Math.random() * arr.length)
+            var ranElement = arr [ranIndex]
+            return ranElement;
+        }
+
+        function generatePassword () {
+            var options = password ();
+            var result =[];
+            var possibleChar = [];
+            var guarChar = [];
+
+            if (passwordOptions.numSpc) {
+                possibleChar = possibleChar.concat (numSpc);
+                guarChar.push (getRandom(numSpc))
+            }
+
+            if (passwordOptions.numChar) {
+                possibleChar = possibleChar.concat (numChar);
+                guarChar.push (getRandom(numChar))
+            }
+
+            if (passwordOptions.numChar) {
+                possibleChar = possibleChar.concat (numUpper);
+                guarChar.push (getRandom(numUpper))
+            }
+
+            if (passwordOptions.numChar) {
+                possibleChar = possibleChar.concat (numLower);
+                guarChar.push (getRandom(numLower))
+            }
+
+
+            for (var i =0; i<options.length; i++) {
+                var posChar = getRandom(possibleChar);
+                result.push (posChar)
+            }
+
+
+        }
 
         while (x < 1) {
-            var totalChar = parseInt(prompt("How many characters do you want your password to be? Choose a number between 8 and 128"))
-                if ((totalChar >= 8) && (totalChar <= 128)) {
-                    x = 1
-                } else {
-                    alert("Number is out of range, hit ok and try again!")
-                }
-        } 
+
+            if ((totalChar >= 8) && (totalChar <= 128)) {
+                x = 1
+            } else {
+                alert("Number is out of range, hit ok and try again!")
+            }
+        }
 
 
-                    var numLower = confirm("Do you want to include lower case letters?")
-                    var numUpper = confirm("Do you want to include upper case letters?")
-                    var numChar = confirm("Do you want to include numbers?")
-                    var numSpc = confirm("Do you want to include special characters?")
+        alert = ("Your password is " + password)
 
 
 
-                    var passwordChar = [];
 
-                    var password = ""
-
-                    function pullCharArr (num,arr) {
-                        for (var i = 0; i < num; i++) {
-                            passwordChar.push(arr[Math.floor(Math.random() * (arr.length))])
-                        }
-                    }
-
-                    pullCharArr(numLower,lowerChar)
-                    pullCharArr(numUpper, upperChar)
-                    pullCharArr(numChar, numChar)
-                    pullCharArr(numSpc, spcChar)
-
-                    for (var i =0; i < passwordChar.length; i++) {
-                        password = password + passwordChar[i]
-                    }
-
-                    alert = ("Your password is " + password)
-
-                    
-
-                 
     </script>
 
 </body>
