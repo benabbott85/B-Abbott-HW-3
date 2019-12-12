@@ -1,23 +1,9 @@
-<!-- <!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-
-<body>
-
-    <script type="text/javascript">
-
 
         var lowerChar = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
         var upperChar = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
         var num = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
         var spcChar = [' ', '!', '"', '#', '$', '%', '&', '(', ')', '*', '+', ',', '-', '.', '/', ':', ';', '<', '=', '>', '?', '@', '[', ']', '^', '_', '`', '{', '|', '}', '~']
-
+        var passwordTrans = document.getElementById("password");
         var x = 0
         varnumSelect = 0
 
@@ -96,11 +82,36 @@
 
         }
 
+        // Assignment Code
+        var generateBtn = document.querySelector("#generate");
+
+
+// Write password to the #password input
+    function writePassword() {
+    var password = generatePassword();
+    var passwordText = document.querySelector("#password");
+
+    passwordText.value = password;
+
+    copyBtn.removeAttribute("disabled");
+    copyBtn.focus();
+}
+
+    function copyToClipboard() {
+  // BONUS 
+}
+
+// Add event listener to generate button
+    generateBtn.addEventListener("click", password);
+
+
     //    var passwordConfig = password()
     generatePassword(); 
     alert = ("Your password is " + password)
 
     
+
+    
     
 
 
@@ -110,8 +121,4 @@
 
 
 
-    </script>
-
-</body>
-
-</html> -->
+   

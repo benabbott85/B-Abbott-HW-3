@@ -1,0 +1,25 @@
+h1 {
+    text-align: center;
+    background: gray;
+    color: black;
+
+}
+
+h2 {
+    text-align: center;
+    color: red;
+    font-size: 50px;
+
+}
+
+.wrapper {
+    background: lightgray;
+    height:400px;
+}
+
+.btn {
+    height: 40px;
+    width: 180px;
+    box-align: center;
+}
+
