@@ -3,8 +3,7 @@
         var upperChar = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
         var num = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
         var spcChar = [' ', '!', '"', '#', '$', '%', '&', '(', ')', '*', '+', ',', '-', '.', '/', ':', ';', '<', '=', '>', '?', '@', '[', ']', '^', '_', '`', '{', '|', '}', '~']
-        var x = 0
-        varnumSelect = 0
+        
 
 
         function password() {
@@ -38,7 +37,7 @@
             }
             return passwordOptions;
         }
-
+        // this function will grab a random index out of my arrays
         function getRandom (arr) {
             var ranIndex = Math.floor(Math.random() * arr.length)
             var ranElement = arr [ranIndex]
@@ -52,37 +51,40 @@
             var guarChar = [];
 
             if (options.numSpc) {
-                possibleChar = possibleChar.concat(numSpc);
-                guarChar.push(getRandom(numSpc))
+                possibleChar = possibleChar.concat(spcChar);
+                guarChar.push(getRandom(spcChar))
             }
 
             if (options.numChar) {
-                possibleChar = possibleChar.concat(numChar);
-                guarChar.push(getRandom(numChar))
+                possibleChar = possibleChar.concat(num);
+                guarChar.push(getRandom(num))
             }
 
-            if (options.numChar) {
-                possibleChar = possibleChar.concat(numUpper);
-                guarChar.push(getRandom(numUpper))
+            if (options.numLower) {
+                possibleChar = possibleChar.concat(lowerChar);
+                guarChar.push(getRandom(lowerChar))
             }
 
-            if (options.numChar) {
-                possibleChar = possibleChar.concat(numLower);
-                guarChar.push(getRandom(numLower))
+            if (options.numUpper) {
+                possibleChar = possibleChar.concat(upperChar);
+                guarChar.push(getRandom(upperChar))
             }
 
 
-            for (var i =0; i<options.length; i++) {
+            for (var i = 0; i<options.length; i++) {
                 var posChar = getRandom(possibleChar);
                 result.push(posChar)
             }
         
-        
-
+            for ( var i =0; i<guarChar.length; i++) {
+                 result[i] = guarChar[i];
+            }
+            return result.join("");
         }
 
         // Assignment Code
         var generateBtn = document.querySelector("#generate");
+        var copyBtn = document.querySelector("#copy");
 
 
 // Write password to the #password input
@@ -97,16 +99,23 @@
 }
 
     function copyToClipboard() {
+        var passwordText = document.querySelector("#password");
+        passwordText.select();
+        document.execCommand("copy");
+        alert("your password" +  passwordText.value + " has been copied!");
+  
   // BONUS 
 }
 
 // Add event listener to generate button
-    generateBtn.addEventListener("click", password);
+    generateBtn.addEventListener("click", writePassword);
+    copyBtn.addEventListener("click", copyToClipboard);
+    
 
 
     //    var passwordConfig = password()
-    generatePassword(); 
-    alert = ("Your password is " + password)
+    // generatePassword(); 
+    // alert = ("Your password is " + password)
 
     
 
