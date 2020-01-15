@@ -14,7 +14,7 @@ h2 {
 
 .wrapper {
     background: lightgray;
-    height:400px;
+    height:600px;
 }
 
 .btn {
@@ -24,4 +24,10 @@ h2 {
     margin-left: 300px;
 }
 
+#passwordbody{
+    height: 200px;
+    width: 200px;
+    box-align: center;
+    left: 300px;
+}
 
